@@ -15,6 +15,11 @@ class IntBuilder extends MainBuilder {
         [...args].forEach(item => this.value += item)
         return this
     }
+    
+    minus(...args) {
+        [...args].forEach(item => this.value -= item)
+        return this
+    }
 }
 
 let meow = new IntBuilder(6);
