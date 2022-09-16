@@ -6,6 +6,10 @@ class MainBuilder {
     get() {
         return this.value;
     }
+    
+    static getRandom(from, to) {
+        return  Math.ceil(Math.random() * (from - to) + to);
+    }
 }
 
 //ES6
@@ -20,7 +24,6 @@ class IntBuilder extends MainBuilder {
         [...args].forEach(item => this.value -= item)
         return this;
     }
-
     multiply(x) {
         return this.value * x;
     }
