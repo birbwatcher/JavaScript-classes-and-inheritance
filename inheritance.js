@@ -6,10 +6,6 @@ class MainBuilder {
     get() {
         return this.value;
     }
-    
-    static getRandom(from, to) {
-        return  Math.ceil(Math.random() * (from - to) + to);
-    }
 }
 
 //ES6
@@ -33,7 +29,10 @@ class IntBuilder extends MainBuilder {
     mod(x) {
         return this.value % x;
     }
-    
+
+    static getRandom(from, to) {
+        return  Math.ceil(Math.random() * (from - to) + to);
+    }
 }
 
 let meow = new IntBuilder(25);
