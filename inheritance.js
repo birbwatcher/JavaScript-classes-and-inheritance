@@ -13,13 +13,24 @@ class MainBuilder {
 class IntBuilder extends MainBuilder {
     plus(...args) {
         [...args].forEach(item => this.value += item)
-        return this
+        return this;
     }
-    
+
     minus(...args) {
         [...args].forEach(item => this.value -= item)
-        return this
+        return this;
     }
+
+    multiply(x) {
+        return this.value * x;
+    }
+    divide(x) {
+        return Math.floor(this.value / x);
+    }
+    mod(x) {
+        return this.value % x;
+    }
+    
 }
 
-let meow = new IntBuilder(6);
+let meow = new IntBuilder(25);
