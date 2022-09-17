@@ -11,6 +11,7 @@ class MainBuilder {
 //ES6
 
 class IntBuilder extends MainBuilder {
+
     plus(...args) {
         [...args].forEach(item => this.value += item)
         return this;
@@ -21,10 +22,12 @@ class IntBuilder extends MainBuilder {
         return this;
     }
     multiply(x) {
-        return this.value * x;
+        this.value = this.value * x;
+        return this;
     }
     divide(x) {
-        return Math.floor(this.value / x);
+        this.value = Math.floor(this.value / x);
+        return this;
     }
     mod(x) {
         return this.value % x;
@@ -35,4 +38,26 @@ class IntBuilder extends MainBuilder {
     }
 }
 
-let meow = new IntBuilder(25);
+// let meow = new IntBuilder(25);
+
+//ES5
+
+strBuilder.prototype.get = function() {
+    return 
+}
+
+strBuilder.prototype = Object.create(MainBuilder.prototype);
+
+function strBuilder(value) {
+    Object.assign(this, new MainBuilder(value))
+}
+
+
+strBuilder.prototype.plus = function(...args) {
+    [...args].forEach(item => this.value += item)
+    return this;
+}
+
+
+let meow = new strBuilder('Hello');
+
