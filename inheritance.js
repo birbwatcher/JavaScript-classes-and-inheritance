@@ -34,13 +34,13 @@ class IntBuilder extends MainBuilder {
         return this;
     }
 
-    static getRandom(from, to) {
-        this.value = Math.ceil(Math.random() * (from - to) + to);
-        return this;
+    static random(from, to) {
+        return Math.ceil(Math.random() * (from - to) + to);
     }
 }
 
 //ES5
+
 
 strBuilder.prototype = Object.create(MainBuilder.prototype);
 
