@@ -42,10 +42,6 @@ class IntBuilder extends MainBuilder {
 
 //ES5
 
-strBuilder.prototype.get = function() {
-    return this.value;
-}
-
 strBuilder.prototype = Object.create(MainBuilder.prototype);
 
 function strBuilder(value) {
