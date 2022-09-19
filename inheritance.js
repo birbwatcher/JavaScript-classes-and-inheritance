@@ -30,20 +30,20 @@ class IntBuilder extends MainBuilder {
         return this;
     }
     mod(x) {
-        return this.value % x;
+        this.value = this.value % x;
+        return this;
     }
 
     static getRandom(from, to) {
-        return  Math.ceil(Math.random() * (from - to) + to);
+        this.value = Math.ceil(Math.random() * (from - to) + to);
+        return this;
     }
 }
-
-// let meow = new IntBuilder(25);
 
 //ES5
 
 strBuilder.prototype.get = function() {
-    return 
+    return this.value;
 }
 
 strBuilder.prototype = Object.create(MainBuilder.prototype);
@@ -58,6 +58,38 @@ strBuilder.prototype.plus = function(...args) {
     return this;
 }
 
+strBuilder.prototype.minus = function(x) {
+    this.value =  this.value.substring(0, this.value.length - x);
+    return this;
+}
 
+strBuilder.prototype.multiply = function(x) {
+    this.value = (this.value + ' ').repeat(x);
+    return this;
+}
+
+strBuilder.prototype.divide = function(x) {
+    this.value = this.value.slice(0, x)
+    return this;
+}
+
+strBuilder.prototype.remove = function(x) {
+    let array = this.value.split('');
+    let result = [];
+    array.forEach(function(item) {
+        if (item !== x) {
+            result.push(item);
+        }
+    }) 
+    this.value = result.join('');
+    return this;
+}
+
+strBuilder.prototype.sub = function(x, y) {
+    this.value = this.value.substr(x, y);
+    return this;
+}
+
+let woof = new IntBuilder(10);
 let meow = new strBuilder('Hello');
 
