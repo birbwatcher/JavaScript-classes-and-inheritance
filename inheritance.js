@@ -61,8 +61,6 @@ class IntBuilder extends MainBuilder {
 
 //ES5
 
-
-
 let StrBuilder = (function() {
     function MyConstructor(value) {
         this.value = value;
