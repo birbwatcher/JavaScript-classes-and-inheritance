@@ -3,6 +3,13 @@ let MainBuilder = (function() {
         this.value = value;
     }
 
+    MyConstructor.prototype.plus = function(x) {
+        for (let i = 0;i<arguments.length;i++) {
+            this.value += arguments[i]
+        }
+        return this;
+    }
+
     MyConstructor.prototype.get = function() {
         return this.value;
     }
@@ -70,15 +77,6 @@ let StrBuilder = (function() {
 })();
 
 StrBuilder.prototype = Object.create(MainBuilder.prototype);
-
-
-
-StrBuilder.prototype.plus = function(x) {
-    for (let i = 0;i<arguments.length;i++) {
-        this.value += arguments[i]
-    }
-    return this;
-}
 
 StrBuilder.prototype.remove = function(x) {
     let array = this.value.split('');
