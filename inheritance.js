@@ -22,27 +22,27 @@ class IntBuilder extends MainBuilder {
         return this;
     }
     multiply(x) {
-        this.value = this.value * x;
+        this.value *= x;
         return this;
     }
     divide(x) {
-        this.value = Math.floor(this.value / x);
+        this.value /= x;
         return this;
     }
     mod(x) {
-        this.value = this.value % x;
+        this.value %= x;
         return this;
     }
 
     static random(from, to) {
-        return Math.ceil(Math.random() * (from - to) + to);
+        return Math.round(from + Math.random() * (to - from));
     }
 }
 
 //ES5
 
 
-strBuilder.prototype = Object.create(MainBuilder.prototype);
+StrBuilder.prototype = Object.create(MainBuilder.prototype);
 
 function strBuilder(value) {
     Object.assign(this, new MainBuilder(value))
@@ -86,5 +86,5 @@ strBuilder.prototype.sub = function(x, y) {
     return this;
 }
 
-let woof = new IntBuilder(10);
-let meow = new strBuilder('Hello');
+let myNumber = new IntBuilder(10);
+let myString = new strBuilder('Hello');
