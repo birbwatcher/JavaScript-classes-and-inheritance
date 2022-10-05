@@ -88,4 +88,3 @@ strBuilder.prototype.sub = function(x, y) {
 
 let woof = new IntBuilder(10);
 let meow = new strBuilder('Hello');
-
